@@ -2,8 +2,10 @@ package com.kareemdev.tourismapps.home
 
 import androidx.lifecycle.ViewModel
 import com.kareemdev.tourismapps.core.data.TourismRepository
-class HomeViewModel(tourismRepository: TourismRepository) : ViewModel() {
+import com.kareemdev.tourismapps.core.domain.usecase.TourismUseCase
 
-    val tourism = tourismRepository.getAllTourism()
+class HomeViewModel(tourismUseCase: TourismUseCase) : ViewModel() {
+
+    val tourism = tourismUseCase.getAllTourism()
 
 }
