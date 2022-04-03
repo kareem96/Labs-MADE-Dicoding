@@ -6,11 +6,12 @@ import com.kareemdev.tourismapps.core.data.source.local.entity.TourismEntity
 
 @Dao
 interface TourismDao {
+
     @Query("SELECT * FROM tourism")
-    fun getAllTourism():LiveData<List<TourismEntity>>
+    fun getAllTourism(): LiveData<List<TourismEntity>>
 
     @Query("SELECT * FROM tourism where isFavorite = 1")
-    fun getFavoriteTourism():LiveData<List<TourismEntity>>
+    fun getFavoriteTourism(): LiveData<List<TourismEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertTourism(tourism: List<TourismEntity>)

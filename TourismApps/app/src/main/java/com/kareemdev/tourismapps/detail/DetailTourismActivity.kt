@@ -11,7 +11,8 @@ import com.kareemdev.tourismapps.core.ui.ViewModelFactory
 import com.kareemdev.tourismapps.databinding.ActivityDetailTourismBinding
 
 class DetailTourismActivity : AppCompatActivity() {
-    companion object{
+
+    companion object {
         const val EXTRA_DATA = "extra_data"
     }
 
@@ -24,6 +25,7 @@ class DetailTourismActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
+
         val factory = ViewModelFactory.getInstance(this)
         detailTourismViewModel = ViewModelProvider(this, factory)[DetailTourismViewModel::class.java]
 
@@ -41,7 +43,7 @@ class DetailTourismActivity : AppCompatActivity() {
 
             var statusFavorite = detailTourism.isFavorite
             setStatusFavorite(statusFavorite)
-            binding.fab.setOnClickListener{
+            binding.fab.setOnClickListener {
                 statusFavorite = !statusFavorite
                 detailTourismViewModel.setFavoriteTourism(detailTourism, statusFavorite)
                 setStatusFavorite(statusFavorite)
@@ -50,9 +52,9 @@ class DetailTourismActivity : AppCompatActivity() {
     }
 
     private fun setStatusFavorite(statusFavorite: Boolean) {
-        if(statusFavorite){
+        if (statusFavorite) {
             binding.fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite_white))
-        }else{
+        } else {
             binding.fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_not_favorite_white))
         }
     }

@@ -39,4 +39,4 @@ data class TourismEntity(
 
     @ColumnInfo(name = "isFavorite")
     var isFavorite: Boolean = false
-): Parcelable
+) : Parcelable

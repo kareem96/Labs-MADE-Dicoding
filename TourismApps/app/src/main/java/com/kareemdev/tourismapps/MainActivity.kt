@@ -12,7 +12,8 @@ import com.kareemdev.tourismapps.databinding.ActivityMainBinding
 import com.kareemdev.tourismapps.favorite.FavoriteFragment
 import com.kareemdev.tourismapps.home.HomeFragment
 
-class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener{
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,8 +32,10 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         )
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+
         binding.navView.setNavigationItemSelectedListener(this)
-        if(savedInstanceState == null){
+
+        if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.nav_host_fragment, HomeFragment())
                 .commit()
@@ -43,7 +46,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         var fragment: Fragment? = null
         var title = getString(R.string.app_name)
-        when(item.itemId){
+        when (item.itemId) {
             R.id.nav_home -> {
                 fragment = HomeFragment()
                 title = getString(R.string.app_name)
@@ -56,7 +59,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
                 Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show()
             }
         }
-        if(fragment != null){
+        if (fragment != null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.nav_host_fragment, fragment)
                 .commit()

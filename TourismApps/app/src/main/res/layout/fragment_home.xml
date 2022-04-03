@@ -9,10 +9,10 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_tourism"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rv_tourism"
-        tools:listitem="@layout/item_list_tourism"/>
+        tools:listitem="@layout/item_list_tourism" />
 
     <ProgressBar
         android:id="@+id/progress_bar"

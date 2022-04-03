@@ -13,18 +13,21 @@ class TourismRepository private constructor(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
-
 ) {
 
     companion object {
         @Volatile
         private var instance: TourismRepository? = null
 
-        fun getInstance(remoteData: RemoteDataSource, localData: LocalDataSource, appExecutors: AppExecutors):TourismRepository = instance ?: synchronized(this){
-            instance ?: TourismRepository(remoteData, localData, appExecutors)
-        }
+        fun getInstance(
+            remoteData: RemoteDataSource,
+            localData: LocalDataSource,
+            appExecutors: AppExecutors
+        ): TourismRepository =
+            instance ?: synchronized(this) {
+                instance ?: TourismRepository(remoteData, localData, appExecutors)
+            }
     }
-
 
     fun getAllTourism(): LiveData<Resource<List<TourismEntity>>> =
         object : NetworkBoundResource<List<TourismEntity>, List<TourismResponse>>(appExecutors) {
@@ -32,27 +35,23 @@ class TourismRepository private constructor(
                 return localDataSource.getAllTourism()
             }
 
-            override fun shouldFetch(data: List<TourismEntity>?): Boolean {
-                return data == null || data.isEmpty()
-            }
+            override fun shouldFetch(data: List<TourismEntity>?): Boolean =
+                data == null || data.isEmpty()
 
-            override fun createCall(): LiveData<ApiResponse<List<TourismResponse>>> {
-                return remoteDataSource.getAllTourism()
-            }
+            override fun createCall(): LiveData<ApiResponse<List<TourismResponse>>> =
+                remoteDataSource.getAllTourism()
 
             override fun saveCallResult(data: List<TourismResponse>) {
-                val tourismList = DataMapper.mapResponseToEntities(data)
+                val tourismList = DataMapper.mapResponsesToEntities(data)
                 localDataSource.insertTourism(tourismList)
             }
         }.asLiveData()
 
-    fun getFavoriteTourism(): LiveData<List<TourismEntity>>{
-        return localDataSource.getFavorite()
+    fun getFavoriteTourism(): LiveData<List<TourismEntity>> {
+        return localDataSource.getFavoriteTourism()
     }
 
-    fun setFavoriteTourism(tourism: TourismEntity, state: Boolean){
-        appExecutors.diskIO().execute{
-            localDataSource.setFavoriteTourism(tourism, state)
-        }
+    fun setFavoriteTourism(tourism: TourismEntity, state: Boolean) {
+        appExecutors.diskIO().execute { localDataSource.setFavoriteTourism(tourism, state) }
     }
 }

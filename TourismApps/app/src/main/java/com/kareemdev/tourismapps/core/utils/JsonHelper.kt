@@ -7,23 +7,26 @@ import org.json.JSONObject
 import java.io.IOException
 
 class JsonHelper(private val context: Context) {
-    private fun parsingFileToString():String?{
-        val jsonString:String
+
+    private fun parsingFileToString(): String? {
+        val jsonString: String
         try {
-            jsonString = context.resources.openRawResource(R.raw.tourism).bufferedReader().use { it.readText() }
-        }catch (ioException: IOException){
+            jsonString = context.resources.openRawResource(R.raw.tourism).bufferedReader()
+                .use { it.readText() }
+        } catch (ioException: IOException) {
             ioException.printStackTrace()
             return null
         }
         return jsonString
     }
 
-    fun loadData(): List<TourismResponse>{
-        val list  = ArrayList<TourismResponse>()
-        var responseObject = JSONObject(parsingFileToString().toString())
-        var listArray = responseObject.getJSONArray("places")
-        for (i in 0 until listArray.length()){
+    fun loadData(): List<TourismResponse> {
+        val list = ArrayList<TourismResponse>()
+        val responseObject = JSONObject(parsingFileToString().toString())
+        val listArray = responseObject.getJSONArray("places")
+        for (i in 0 until listArray.length()) {
             val course = listArray.getJSONObject(i)
+
             val id = course.getString("id")
             val name = course.getString("name")
             val description = course.getString("description")
@@ -41,7 +44,7 @@ class JsonHelper(private val context: Context) {
                 longitude = longitude,
                 latitude = latitude,
                 like = like,
-                image = image,
+                image = image
             )
             list.add(courseResponse)
         }

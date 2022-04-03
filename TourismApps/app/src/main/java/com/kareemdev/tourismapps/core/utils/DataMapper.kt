@@ -4,7 +4,7 @@ import com.kareemdev.tourismapps.core.data.source.local.entity.TourismEntity
 import com.kareemdev.tourismapps.core.data.source.remote.response.TourismResponse
 
 object DataMapper {
-    fun mapResponseToEntities(input: List<TourismResponse>): List<TourismEntity>{
+    fun mapResponsesToEntities(input: List<TourismResponse>): List<TourismEntity> {
         val tourismList = ArrayList<TourismEntity>()
         input.map {
             val tourism = TourismEntity(

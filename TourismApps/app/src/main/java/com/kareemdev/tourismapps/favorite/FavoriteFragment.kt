@@ -20,21 +20,25 @@ import com.kareemdev.tourismapps.detail.DetailTourismActivity
  * create an instance of this fragment.
  */
 class FavoriteFragment : Fragment() {
+
     private lateinit var favoriteViewModel: FavoriteViewModel
+
     private var _binding: FragmentFavoriteBinding? = null
     private val binding get() = _binding!!
 
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        _binding = FragmentFavoriteBinding.inflate(inflater, container,  false)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if(activity != null){
+        if (activity != null) {
+
             val tourismAdapter = TourismAdapter()
             tourismAdapter.onItemClick = { selectedData ->
                 val intent = Intent(activity, DetailTourismActivity::class.java)
@@ -45,11 +49,12 @@ class FavoriteFragment : Fragment() {
             val factory = ViewModelFactory.getInstance(requireActivity())
             favoriteViewModel = ViewModelProvider(this, factory)[FavoriteViewModel::class.java]
 
-            favoriteViewModel.favoriteTourism.observe(viewLifecycleOwner,{dataTourism ->
+            favoriteViewModel.favoriteTourism.observe(viewLifecycleOwner, { dataTourism ->
                 tourismAdapter.setData(dataTourism)
                 binding.viewEmpty.root.visibility = if (dataTourism.isNotEmpty()) View.GONE else View.VISIBLE
             })
-            with(binding.rvTourism){
+
+            with(binding.rvTourism) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 adapter = tourismAdapter
@@ -57,9 +62,8 @@ class FavoriteFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
-
 }

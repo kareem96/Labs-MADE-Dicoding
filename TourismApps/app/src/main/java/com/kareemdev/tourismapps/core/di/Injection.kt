@@ -9,7 +9,7 @@ import com.kareemdev.tourismapps.core.utils.AppExecutors
 import com.kareemdev.tourismapps.core.utils.JsonHelper
 
 object Injection {
-    fun provideRepository(context: Context): TourismRepository{
+    fun provideRepository(context: Context): TourismRepository {
         val database = TourismDatabase.getInstance(context)
 
         val remoteDataSource = RemoteDataSource.getInstance(JsonHelper(context))

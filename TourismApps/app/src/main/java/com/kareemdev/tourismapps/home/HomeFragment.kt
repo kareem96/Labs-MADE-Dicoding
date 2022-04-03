@@ -22,22 +22,27 @@ import com.kareemdev.tourismapps.detail.DetailTourismActivity
  * create an instance of this fragment.
  */
 class HomeFragment : Fragment() {
+
     private lateinit var homeViewModel: HomeViewModel
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if(activity != null){
+
+        if (activity != null) {
+
             val tourismAdapter = TourismAdapter()
-            tourismAdapter.onItemClick ={selectedData ->
+            tourismAdapter.onItemClick = { selectedData ->
                 val intent = Intent(activity, DetailTourismActivity::class.java)
                 intent.putExtra(DetailTourismActivity.EXTRA_DATA, selectedData)
                 startActivity(intent)
@@ -46,7 +51,7 @@ class HomeFragment : Fragment() {
             val factory = ViewModelFactory.getInstance(requireActivity())
             homeViewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
 
-            homeViewModel.tourism.observe(viewLifecycleOwner) { tourism ->
+            homeViewModel.tourism.observe(viewLifecycleOwner, { tourism ->
                 if (tourism != null) {
                     when (tourism) {
                         is Resource.Loading -> binding.progressBar.visibility = View.VISIBLE
@@ -57,23 +62,22 @@ class HomeFragment : Fragment() {
                         is Resource.Error -> {
                             binding.progressBar.visibility = View.GONE
                             binding.viewError.root.visibility = View.VISIBLE
-                            binding.viewError.tvError.text =
-                                tourism.message ?: getString(R.string.something_wrong)
+                            binding.viewError.tvError.text = tourism.message ?: getString(R.string.something_wrong)
                         }
                     }
                 }
-            }
-            with(binding.rvTourism){
+            })
+
+            with(binding.rvTourism) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
-                adapter = adapter
+                adapter = tourismAdapter
             }
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
-
 }

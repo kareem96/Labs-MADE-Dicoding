@@ -9,19 +9,28 @@ import com.kareemdev.tourismapps.detail.DetailTourismViewModel
 import com.kareemdev.tourismapps.favorite.FavoriteViewModel
 import com.kareemdev.tourismapps.home.HomeViewModel
 
-class ViewModelFactory private constructor(private val tourismRepository: TourismRepository): ViewModelProvider.NewInstanceFactory() {
-    companion object{
+class ViewModelFactory private constructor(private val tourismRepository: TourismRepository) : ViewModelProvider.NewInstanceFactory() {
+
+    companion object {
         @Volatile
         private var instance: ViewModelFactory? = null
 
-        fun getInstance(context: Context): ViewModelFactory = instance ?: synchronized(this){
-            instance ?:  ViewModelFactory(Injection.provideRepository(context))
-        }
+        fun getInstance(context: Context): ViewModelFactory =
+            instance
+                ?: synchronized(this) {
+                    instance
+                        ?: ViewModelFactory(
+                            Injection.provideRepository(
+                                context
+                            )
+                        )
+                }
     }
 
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-        when{
-            modelClass.isAssignableFrom(HomeViewModel::class.java) ->{
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T =
+        when {
+            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
                 HomeViewModel(tourismRepository) as T
             }
             modelClass.isAssignableFrom(FavoriteViewModel::class.java) -> {
