@@ -7,6 +7,7 @@ import dagger.Component
 import javax.inject.Singleton
 
 
+/*
 @Singleton
 @Component(
     modules = [RepositoryModule::class]
@@ -19,4 +20,4 @@ interface CoreComponent {
     }
 
     fun provideRepository() : ITourismRepository
-}
+}*/

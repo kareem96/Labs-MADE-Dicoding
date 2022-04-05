@@ -13,9 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.kareemdev.tourismapps.MyApplication
 import com.kareemdev.tourismapps.R
 import com.kareemdev.tourismapps.core.ui.TourismAdapter
-import com.kareemdev.tourismapps.core.ui.ViewModelFactory
+
 import com.kareemdev.tourismapps.databinding.FragmentFavoriteBinding
 import com.kareemdev.tourismapps.detail.DetailTourismActivity
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 /**
@@ -23,21 +24,21 @@ import javax.inject.Inject
  * Use the [FavoriteFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
+@AndroidEntryPoint
 class FavoriteFragment : Fragment() {
 
-    @Inject
-    lateinit var factory: ViewModelFactory
-    private val favoriteViewModel: FavoriteViewModel by viewModels {
-        factory
-    }
+    /*@Inject
+    lateinit var factory: ViewModelFactory*/
+    private val favoriteViewModel: FavoriteViewModel by viewModels()
 
     private var _binding: FragmentFavoriteBinding? = null
     private val binding get() = _binding!!
 
-    override fun onAttach(context: Context) {
+    /*override fun onAttach(context: Context) {
         super.onAttach(context)
         (requireActivity().application as MyApplication).appComponent.inject(this)
-    }
+    }*/
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)

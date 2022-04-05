@@ -1,6 +1,6 @@
 package com.kareemdev.tourismapps.di
 
-import androidx.lifecycle.ViewModel
+/*import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.kareemdev.tourismapps.core.ui.ViewModelFactory
 import com.kareemdev.tourismapps.detail.DetailTourismViewModel
@@ -8,7 +8,8 @@ import com.kareemdev.tourismapps.favorite.FavoriteViewModel
 import com.kareemdev.tourismapps.home.HomeViewModel
 import dagger.Binds
 import dagger.Module
-import dagger.multibindings.IntoMap
+import dagger.multibindings.IntoMap*/
+/*
 
 @Suppress("unused")
 @Module
@@ -32,4 +33,4 @@ abstract class ViewModelModule {
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 
-}
+}*/

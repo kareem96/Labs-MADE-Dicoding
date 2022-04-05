@@ -8,15 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
+
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kareemdev.tourismapps.MyApplication
 import com.kareemdev.tourismapps.R
 import com.kareemdev.tourismapps.core.data.Resource
 import com.kareemdev.tourismapps.core.ui.TourismAdapter
-import com.kareemdev.tourismapps.core.ui.ViewModelFactory
+
 import com.kareemdev.tourismapps.databinding.FragmentHomeBinding
 import com.kareemdev.tourismapps.detail.DetailTourismActivity
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 
@@ -25,23 +25,23 @@ import javax.inject.Inject
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     /*private lateinit var homeViewModel: HomeViewModel*/
 
-    @Inject
-    lateinit var factory: ViewModelFactory
-    private val homeViewModel: HomeViewModel by viewModels {
-        factory
-    }
+    /*@Inject
+    lateinit var factory: ViewModelFactory*/
+    private val homeViewModel: HomeViewModel by viewModels()
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    override fun onAttach(context: Context) {
+    /*override fun onAttach(context: Context) {
         super.onAttach(context)
         (requireActivity().application as MyApplication).appComponent.inject(this)
-    }
+    }*/
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)

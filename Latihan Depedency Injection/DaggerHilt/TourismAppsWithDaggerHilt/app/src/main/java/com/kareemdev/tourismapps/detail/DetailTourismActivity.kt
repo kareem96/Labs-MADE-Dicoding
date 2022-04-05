@@ -4,17 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.kareemdev.tourismapps.MyApplication
 import com.kareemdev.tourismapps.R
-import com.kareemdev.tourismapps.core.data.source.local.entity.TourismEntity
 import com.kareemdev.tourismapps.core.domain.model.Tourism
-import com.kareemdev.tourismapps.core.ui.ViewModelFactory
-
 import com.kareemdev.tourismapps.databinding.ActivityDetailTourismBinding
-import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class DetailTourismActivity : AppCompatActivity() {
 
     companion object {
@@ -22,14 +19,12 @@ class DetailTourismActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityDetailTourismBinding
-    @Inject
-    lateinit var factory: ViewModelFactory
-    private val detailTourismViewModel: DetailTourismViewModel by viewModels {
-        factory
-    }
+    /*@Inject
+    lateinit var factory: ViewModelFactory*/
+    private val detailTourismViewModel: DetailTourismViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (application as MyApplication).appComponent.inject(this)
+        /*(application as MyApplication).appComponent.inject(this)*/
         super.onCreate(savedInstanceState)
         binding = ActivityDetailTourismBinding.inflate(layoutInflater)
         setContentView(binding.root)

@@ -11,7 +11,10 @@ import com.google.android.material.navigation.NavigationView
 import com.kareemdev.tourismapps.databinding.ActivityMainBinding
 import com.kareemdev.tourismapps.favorite.FavoriteFragment
 import com.kareemdev.tourismapps.home.HomeFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
