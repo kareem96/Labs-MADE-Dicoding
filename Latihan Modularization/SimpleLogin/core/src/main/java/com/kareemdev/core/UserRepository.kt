@@ -1,4 +1,4 @@
-package com.kareemdev.simpleloginwithkoin
+package com.kareemdev.core
 
 class UserRepository(private val sesi: SessionManager) {
     companion object{

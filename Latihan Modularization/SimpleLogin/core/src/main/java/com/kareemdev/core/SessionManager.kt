@@ -1,4 +1,4 @@
-package com.kareemdev.simpleloginwithkoin
+package com.kareemdev.core
 
 import android.content.Context
 import android.content.SharedPreferences

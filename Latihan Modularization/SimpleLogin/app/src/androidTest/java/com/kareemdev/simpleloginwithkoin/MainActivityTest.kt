@@ -1,5 +1,6 @@
 package com.kareemdev.simpleloginwithkoin
 
+import com.kareemdev.core.UserRepository
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before

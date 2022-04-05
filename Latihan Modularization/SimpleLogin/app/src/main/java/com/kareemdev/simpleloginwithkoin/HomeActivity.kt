@@ -3,6 +3,7 @@ package com.kareemdev.simpleloginwithkoin
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.kareemdev.core.UserRepository
 import com.kareemdev.simpleloginwithkoin.databinding.ActivityHomeBinding
 import org.koin.android.ext.android.inject
 
