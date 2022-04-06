@@ -17,6 +17,7 @@
         <entry key="app/src/main/res/layout/view_empty.xml" value="0.1" />
         <entry key="app/src/main/res/layout/view_error.xml" value="0.1" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.1" />
+        <entry key="core/src/main/res/layout/item_list_tourism.xml" value="0.1" />
       </map>
     </option>
   </component>

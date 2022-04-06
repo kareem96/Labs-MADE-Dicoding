@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kareemdev.tourismapps.R
-import com.kareemdev.tourismapps.core.data.Resource
-import com.kareemdev.tourismapps.core.ui.TourismAdapter
+import com.kareemdev.tourismapss.core.data.Resource
+import com.kareemdev.tourismapss.core.ui.TourismAdapter
 import com.kareemdev.tourismapps.databinding.FragmentHomeBinding
 import com.kareemdev.tourismapps.detail.DetailTourismActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel

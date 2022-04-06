@@ -1,8 +1,7 @@
 package com.kareemdev.tourismapps.di
 
-import androidx.lifecycle.ViewModel
-import com.kareemdev.tourismapps.core.domain.usecase.TourismInteractor
-import com.kareemdev.tourismapps.core.domain.usecase.TourismUseCase
+import com.kareemdev.tourismapss.core.domain.usecase.TourismInteractor
+import com.kareemdev.tourismapss.core.domain.usecase.TourismUseCase
 import com.kareemdev.tourismapps.detail.DetailTourismViewModel
 import com.kareemdev.tourismapps.favorite.FavoriteViewModel
 import com.kareemdev.tourismapps.home.HomeViewModel

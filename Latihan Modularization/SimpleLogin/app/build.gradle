@@ -35,11 +35,15 @@ android {
     buildFeatures{
         viewBinding true
     }
+
+    dynamicFeatures = [':chat']
 }
 
 dependencies {
     //module
     implementation project(":core")
+
+    implementation "com.google.android.play:core:1.10.3"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'

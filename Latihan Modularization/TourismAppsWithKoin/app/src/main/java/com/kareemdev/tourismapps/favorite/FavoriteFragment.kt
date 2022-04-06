@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kareemdev.tourismapps.core.ui.TourismAdapter
+import com.kareemdev.tourismapss.core.ui.TourismAdapter
 import com.kareemdev.tourismapps.databinding.FragmentFavoriteBinding
 import com.kareemdev.tourismapps.detail.DetailTourismActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel

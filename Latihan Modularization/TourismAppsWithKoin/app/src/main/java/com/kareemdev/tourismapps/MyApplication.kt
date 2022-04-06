@@ -1,9 +1,9 @@
 package com.kareemdev.tourismapps
 
 import android.app.Application
-import com.kareemdev.tourismapps.core.di.databaseModule
-import com.kareemdev.tourismapps.core.di.networkModule
-import com.kareemdev.tourismapps.core.di.repositoryModule
+import com.kareemdev.tourismapss.core.di.databaseModule
+import com.kareemdev.tourismapss.core.di.networkModule
+import com.kareemdev.tourismapss.core.di.repositoryModule
 import com.kareemdev.tourismapps.di.useCaseModule
 import com.kareemdev.tourismapps.di.viewModelModule
 import org.koin.android.ext.koin.androidContext

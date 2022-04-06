@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.kareemdev.tourismapps.R
-import com.kareemdev.tourismapps.core.domain.model.Tourism
+import com.kareemdev.tourismapss.core.domain.model.Tourism
 
 import com.kareemdev.tourismapps.databinding.ActivityDetailTourismBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
