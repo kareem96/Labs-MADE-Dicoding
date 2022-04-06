@@ -1,4 +1,4 @@
-package com.kareemdev.gimcatalogue.utils
+package com.kareemdev.gimcatalogue.core.utils
 
 object Constant {
     const val BASE_URL = "https://api.rawg.io/api/"

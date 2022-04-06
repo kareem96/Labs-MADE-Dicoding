@@ -1,8 +1,7 @@
-package com.kareemdev.gimcatalogue.data
+package com.kareemdev.gimcatalogue.core.data.remote.network
 
-import com.kareemdev.gimcatalogue.data.remote.ApiService
-import com.kareemdev.gimcatalogue.utils.Constant.API_KEY
-import com.kareemdev.gimcatalogue.utils.Constant.BASE_URL
+import com.kareemdev.gimcatalogue.core.utils.Constant.API_KEY
+import com.kareemdev.gimcatalogue.core.utils.Constant.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
