@@ -1,4 +1,4 @@
-package com.kareemdev.tmdbapp.detail
+package com.kareemdev.tmdbapp.presentation.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -35,7 +35,7 @@ class DetailMovieActivity : AppCompatActivity() {
             supportActionBar?.title = detailMovie.title
             Glide.with(this@DetailMovieActivity)
 
-                .load(getString(com.kareemdev.tmdbapp.core.R.string.baseUrlImage, detailMovie.posterPath))
+                .load(getString(R.string.baseUrlImage, detailMovie.posterPath))
                 .into(binding.ivDetailImage)
 
             var statusFavorite = detailMovie.isFavorite
@@ -51,6 +51,7 @@ class DetailMovieActivity : AppCompatActivity() {
     private fun setStatusFavorite(statusFavorite: Boolean) {
         if(statusFavorite){
             binding.fab.setImageDrawable(
+
                 ContextCompat.getDrawable(
                     this,
                     R.drawable.ic_favorite_white
@@ -63,6 +64,7 @@ class DetailMovieActivity : AppCompatActivity() {
                     R.drawable.ic_not_favorite_white
                 )
             )
+
         }
     }
 }

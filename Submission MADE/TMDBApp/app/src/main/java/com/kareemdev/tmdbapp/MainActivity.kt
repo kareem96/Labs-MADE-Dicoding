@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kareemdev.tmdbapp.databinding.ActivityMainBinding
-import com.kareemdev.tmdbapp.home.HomeFragment
+import com.kareemdev.tmdbapp.presentation.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.view.*
 
 class MainActivity : AppCompatActivity(){
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(){
 
     private fun instastateFragment(): Fragment? {
         return try {
-            Class.forName("com.kareemdev.tmdbapp.favorite.FavoriteFragment").newInstance() as Fragment
+            Class.forName("com.kareemdev.tmdbapp.favorite.presentation.FavoriteFragment").newInstance() as Fragment
         }catch (e: Exception){
             Toast.makeText(this, "Module not found", Toast.LENGTH_SHORT).show()
             null

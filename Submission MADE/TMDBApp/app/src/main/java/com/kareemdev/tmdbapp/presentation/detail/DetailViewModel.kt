@@ -1,4 +1,4 @@
-package com.kareemdev.tmdbapp.detail
+package com.kareemdev.tmdbapp.presentation.detail
 
 import androidx.lifecycle.ViewModel
 import com.kareemdev.tmdbapp.core.domain.model.Movie

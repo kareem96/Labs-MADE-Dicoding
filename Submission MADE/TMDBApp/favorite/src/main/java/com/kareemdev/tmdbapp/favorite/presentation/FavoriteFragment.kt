@@ -1,4 +1,4 @@
-package com.kareemdev.tmdbapp.favorite
+package com.kareemdev.tmdbapp.favorite.presentation
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kareemdev.tmdbapp.core.ui.MovieAdapter
-import com.kareemdev.tmdbapp.detail.DetailMovieActivity
+import com.kareemdev.tmdbapp.presentation.adpater.MovieAdapter
+import com.kareemdev.tmdbapp.presentation.detail.DetailMovieActivity
 import com.kareemdev.tmdbapp.favorite.databinding.FragmentFavoriteBinding
+import com.kareemdev.tmdbapp.favorite.favoriteModule
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 

@@ -1,4 +1,4 @@
-package com.kareemdev.tmdbapp.home
+package com.kareemdev.tmdbapp.presentation.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kareemdev.tmdbapp.R
 import com.kareemdev.tmdbapp.core.data.Resource
-import com.kareemdev.tmdbapp.core.ui.MovieAdapter
+import com.kareemdev.tmdbapp.presentation.adpater.MovieAdapter
 import com.kareemdev.tmdbapp.databinding.FragmentHomeBinding
-import com.kareemdev.tmdbapp.detail.DetailMovieActivity
+import com.kareemdev.tmdbapp.presentation.detail.DetailMovieActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

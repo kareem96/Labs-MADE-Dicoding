@@ -17,11 +17,11 @@
             android:theme="@style/Theme.TMDBApp.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".detail.DetailMovieActivity"
+            android:name="com.kareemdev.tmdbapp.presentation.detail.DetailMovieActivity"
             android:exported="false"
             android:theme="@style/Theme.TMDBApp.NoActionBar" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".presentation.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.TMDBApp.NoActionBar">
             <intent-filter>

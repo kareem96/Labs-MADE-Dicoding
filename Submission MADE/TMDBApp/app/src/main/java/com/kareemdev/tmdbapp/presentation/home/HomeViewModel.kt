@@ -1,4 +1,4 @@
-package com.kareemdev.tmdbapp.home
+package com.kareemdev.tmdbapp.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData

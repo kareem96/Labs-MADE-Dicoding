@@ -1,13 +1,13 @@
-package com.kareemdev.tmdbapp.core.ui
+package com.kareemdev.tmdbapp.presentation.adpater
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.kareemdev.tmdbapp.core.R
-import com.kareemdev.tmdbapp.core.databinding.ItemListMovieBinding
+import com.kareemdev.tmdbapp.R
 import com.kareemdev.tmdbapp.core.domain.model.Movie
+import com.kareemdev.tmdbapp.databinding.ItemListMovieBinding
 
 class MovieAdapter: RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
     private var listData = ArrayList<Movie>()
@@ -40,7 +40,7 @@ class MovieAdapter: RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ListViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_list_movie, parent, false))
 
-    override fun onBindViewHolder(holder: MovieAdapter.ListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val data = listData[position]
         holder.bind(data)
     }

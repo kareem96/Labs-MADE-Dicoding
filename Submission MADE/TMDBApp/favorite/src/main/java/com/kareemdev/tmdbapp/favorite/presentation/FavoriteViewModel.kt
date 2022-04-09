@@ -1,4 +1,4 @@
-package com.kareemdev.tmdbapp.favorite
+package com.kareemdev.tmdbapp.favorite.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
