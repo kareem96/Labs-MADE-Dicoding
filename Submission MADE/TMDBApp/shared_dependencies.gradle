@@ -10,7 +10,7 @@ dependencies {
 
     implementation "androidx.multidex:multidex:$multidex_version"
     implementation "com.makeramen:roundedimageview:$riv_version"
-
+    implementation "com.airbnb.android:lottie:$lottie_version"
 
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"

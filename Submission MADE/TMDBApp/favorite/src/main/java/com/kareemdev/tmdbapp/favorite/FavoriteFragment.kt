@@ -7,11 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kareemdev.tmdbapp.R
 import com.kareemdev.tmdbapp.core.ui.MovieAdapter
-import com.kareemdev.tmdbapp.databinding.FragmentFavoriteBinding
 import com.kareemdev.tmdbapp.detail.DetailMovieActivity
+import com.kareemdev.tmdbapp.favorite.databinding.FragmentFavoriteBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
 
 
 /**
@@ -24,7 +24,7 @@ class FavoriteFragment : Fragment() {
     private var _binding: FragmentFavoriteBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         return binding.root
@@ -32,6 +32,9 @@ class FavoriteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        loadKoinModules(favoriteModule)
+
         if(activity != null){
             val movieAdapter = MovieAdapter()
             movieAdapter.onItemClick = { selectedData ->
@@ -41,8 +44,7 @@ class FavoriteFragment : Fragment() {
             }
             favoriteViewModel.favoriteMovie.observe(viewLifecycleOwner){ detailMovie ->
                 movieAdapter.setData(detailMovie)
-                binding.viewEmpty.root.visibility =
-                    if (detailMovie.isNotEmpty()) View.GONE else View.VISIBLE
+                binding.notFound.visibility = if (detailMovie.isNotEmpty()) View.GONE else View.VISIBLE
             }
             with(binding.rvMovie){
                 layoutManager = LinearLayoutManager(context)

@@ -10,7 +10,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="360dp"
+        android:layout_height="550dp"
         android:fitsSystemWindows="true"
         android:theme="@style/Theme.TMDBApp.AppBarOverlay">
 

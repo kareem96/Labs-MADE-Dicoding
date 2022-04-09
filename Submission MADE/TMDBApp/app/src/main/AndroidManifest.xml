@@ -13,11 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TMDBApp">
         <activity
-            android:name=".detail.DetailMovieActivity"
+            android:name=".MainActivity"
             android:theme="@style/Theme.TMDBApp.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".detail.DetailMovieActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TMDBApp.NoActionBar" />
+        <activity
+            android:name=".SplashScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.TMDBApp.NoActionBar">
             <intent-filter>

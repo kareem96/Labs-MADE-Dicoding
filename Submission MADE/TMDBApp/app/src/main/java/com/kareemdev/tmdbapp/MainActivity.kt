@@ -2,17 +2,16 @@ package com.kareemdev.tmdbapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
-import android.view.MenuItem
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.core.view.GravityCompat
+import android.util.Log
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.android.material.navigation.NavigationView
+import androidx.fragment.app.FragmentTransaction
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kareemdev.tmdbapp.databinding.ActivityMainBinding
-import com.kareemdev.tmdbapp.favorite.FavoriteFragment
 import com.kareemdev.tmdbapp.home.HomeFragment
+import kotlinx.android.synthetic.main.activity_main.view.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(){
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,49 +19,52 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.appBarMain.toolbar)
-
-        val toggle = ActionBarDrawerToggle(
-            this,
-            binding.drawerLayout,
-            binding.appBarMain.toolbar,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
-        )
-
-        binding.drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        binding.navView.setNavigationItemSelectedListener(this)
-
-        if(savedInstanceState == null){
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment, HomeFragment())
-                .commit()
-            supportActionBar?.title = "TMDB App"
-        }
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        var fragment: Fragment? = null
-        var title = "TMDB App"
-        when(item.itemId){
-            R.id.nav_home -> {
-                fragment = HomeFragment()
-                title = getString(R.string.app_name)
-            }
-            R.id.nav_favorite -> {
-                fragment = FavoriteFragment()
-                title = getString(R.string.menu_favorite)
-            }
-        }
-        if(fragment != null){
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment, fragment)
-                .commit()
-        }
         supportActionBar?.title = title
-        binding.drawerLayout.closeDrawer(GravityCompat.START)
-        return true
+        setSupportActionBar(binding.appBarLayout.toolbar)
+        navigationChange(HomeFragment())
+
+        binding.bottomNavigation.setOnNavigationItemSelectedListener(navSelectedListen)
+
     }
+
+    private fun navigationChange(fragment: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.frameContainer, fragment)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .commit()
+    }
+
+    private val navSelectedListen = BottomNavigationView.OnNavigationItemSelectedListener{
+
+        when(it.itemId){
+            R.id.home -> {
+                navigationChange(HomeFragment())
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.favorite -> {
+                moveToFavoriteFragment()
+                return@OnNavigationItemSelectedListener true
+            }
+        }
+        false
+    }
+
+    private fun moveToFavoriteFragment() {
+        val fragment = instastateFragment()
+        Log.d( "moveToFavoriteFragment", fragment.toString())
+        if(fragment != null){
+            navigationChange(fragment)
+        }
+    }
+
+    private fun instastateFragment(): Fragment? {
+        return try {
+            Class.forName("com.kareemdev.tmdbapp.favorite.FavoriteFragment").newInstance() as Fragment
+        }catch (e: Exception){
+            Toast.makeText(this, "Module not found", Toast.LENGTH_SHORT).show()
+            null
+        }
+    }
+
 }

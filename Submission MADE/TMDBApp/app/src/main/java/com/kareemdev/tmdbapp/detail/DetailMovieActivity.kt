@@ -34,7 +34,7 @@ class DetailMovieActivity : AppCompatActivity() {
             binding.content.tvDetailDescription.text = detailMovie.overview
             supportActionBar?.title = detailMovie.title
             Glide.with(this@DetailMovieActivity)
-//                .load(detailMovie.posterPath)
+
                 .load(getString(com.kareemdev.tmdbapp.core.R.string.baseUrlImage, detailMovie.posterPath))
                 .into(binding.ivDetailImage)
 
