@@ -15,4 +15,8 @@
     <string name="title_favorite">Favorite</string>
     <string name="image_description">Image</string>
     <string name="baseUrlImage">https://image.tmdb.org/t/p/w500%s</string>
+    <string name="popularity">POPULARITY</string>
+    <string name="overview">OVERVIEW</string>
+    <string name="release">RELEASE</string>
+    <string name="rating">RATING</string>
 </resources>

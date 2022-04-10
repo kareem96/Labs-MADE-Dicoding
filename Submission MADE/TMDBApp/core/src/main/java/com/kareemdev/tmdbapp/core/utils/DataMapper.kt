@@ -4,8 +4,9 @@ import com.kareemdev.tmdbapp.core.data.source.local.entity.MovieEntity
 import com.kareemdev.tmdbapp.core.data.source.remote.response.MovieResponse
 import com.kareemdev.tmdbapp.core.domain.model.Movie
 
+
 object DataMapper {
-    fun mapResponsesToEntities(input: List<MovieResponse>): List<MovieEntity>{
+    fun mapResponsesToEntities(input: List<MovieResponse>): List<MovieEntity> {
         val movieList = ArrayList<MovieEntity>()
         input.map {
             val movie = MovieEntity(
@@ -49,4 +50,5 @@ object DataMapper {
         releaseDate = input.releaseDate,
         isFavorite = input.isFavorite,
     )
+
 }

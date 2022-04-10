@@ -16,6 +16,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField "String", "API_KEY", "\"0be47f8a233f2718d99d0c366369f1f8\""
+        buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/discover/\""
+
     }
 
     buildTypes {

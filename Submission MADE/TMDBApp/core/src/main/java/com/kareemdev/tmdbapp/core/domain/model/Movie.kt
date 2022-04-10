@@ -16,4 +16,7 @@ data class Movie(
     val voteCount:Int,
     val isFavorite:Boolean,
 
-):Parcelable
+):Parcelable{
+    fun createVoteCountToString(): String =
+        "$voteAverage from $voteCount reviews"
+}

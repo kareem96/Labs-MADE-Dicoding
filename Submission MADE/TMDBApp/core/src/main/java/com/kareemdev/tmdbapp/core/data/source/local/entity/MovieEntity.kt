@@ -31,5 +31,4 @@ data class MovieEntity(
     val voteCount: Int,
     @ColumnInfo(name = "isFavorite")
     var isFavorite: Boolean = false,
-
-):Parcelable
+    ):Parcelable

@@ -31,7 +31,11 @@ class DetailMovieActivity : AppCompatActivity() {
 
     private fun showDetailMovie(detailMovie: Movie?) {
         detailMovie?.let {
+
             binding.content.tvDetailDescription.text = detailMovie.overview
+            binding.content.tvRatingCount.text = detailMovie.createVoteCountToString()
+            binding.content.tvPopularity.text = detailMovie.popularity.toString()
+            binding.content.tvReleaseDate.text = detailMovie.releaseDate
             supportActionBar?.title = detailMovie.title
             Glide.with(this@DetailMovieActivity)
 
