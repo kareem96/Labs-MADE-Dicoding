@@ -15,9 +15,9 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         jcenter()
-
+        maven { url 'https://plugins.gradle.org/m2' }
         maven {
-            url 'https://api.mapbox.com/downloads/v2/snapshots/maven'
+            url 'https://api.mapbox.com/downloads/v2/releases/maven'
             authentication {
                 basic(BasicAuthentication)
             }
