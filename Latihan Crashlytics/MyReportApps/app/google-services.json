@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "475414498097",
+    "project_id": "gfgijh-e422a",
+    "storage_bucket": "gfgijh-e422a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475414498097:android:099a2f5050a190ee2dfe10",
+        "android_client_info": {
+          "package_name": "com.kareemdev.myreportapps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475414498097-kkdnajcgetdek9stqe2kmtiqsp3djq3g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxbtta1_3y0F6_BI8wflPfez1NDTuBcEc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "475414498097-kkdnajcgetdek9stqe2kmtiqsp3djq3g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475414498097:android:17ff91626468cf952dfe10",
+        "android_client_info": {
+          "package_name": "com.kareemdev.tourismapps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475414498097-kkdnajcgetdek9stqe2kmtiqsp3djq3g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxbtta1_3y0F6_BI8wflPfez1NDTuBcEc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "475414498097-kkdnajcgetdek9stqe2kmtiqsp3djq3g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
