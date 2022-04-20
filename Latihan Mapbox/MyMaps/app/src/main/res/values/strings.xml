@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">My Maps</string>
-    <string name="access_token">sk.eyJ1Ijoia2FyZWVtOTYiLCJhIjoiY2wyNXR0d3g2MmNrajNpbXQyOGxwY2EwaiJ9.bd5NFmw_huVxEeNsaxRojw</string>
+    <string name="access_token">TOKEN ANDA</string>
     <string name="start_navigation">Start Navigation</string>
 </resources>
