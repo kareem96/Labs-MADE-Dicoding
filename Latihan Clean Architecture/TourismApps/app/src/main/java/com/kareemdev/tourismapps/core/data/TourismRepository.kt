@@ -34,6 +34,7 @@ class TourismRepository private constructor(
 
     override fun getAllTourism(): LiveData<Resource<List<Tourism>>> =
         object : NetworkBoundResource<List<Tourism>, List<TourismResponse>>(appExecutors) {
+
             override fun loadFromDB(): LiveData<List<Tourism>> {
                 return Transformations.map(localDataSource.getAllTourism()){
                     DataMapper.mapEntitiesToDomain(it)
